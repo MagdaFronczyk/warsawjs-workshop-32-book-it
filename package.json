@@ -1,0 +1,50 @@
+{
+  "name": "warsawjs-workshop-32-book-it",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "start": "parcel index.html -p 3000 --open",
+    "build": "parcel build index.html --public-url /warsawjs-workshop-32-book-it",
+    "deploy": "rm -rf dist/ && yarn build && gh-pages -d dist"
+  },
+  "dependencies": {
+    "autoprefixer": "^9.1.0",
+    "classnames": "^2.2.6",
+    "postcss-modules": "^1.3.2",
+    "prop-types": "^15.6.2",
+    "query-string": "^6.1.0",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.0",
+    "redux-devtools-extension": "^2.13.5",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-0",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-react-app": "^3.1.2",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-config-react-app": "^2.1.0",
+    "eslint-plugin-flowtype": "^2.50.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.10.0",
+    "identity-obj-proxy": "^3.0.0",
+    "node-sass": "^4.9.3",
+    "parcel-bundler": "^1.9.7"
+  }
+}
