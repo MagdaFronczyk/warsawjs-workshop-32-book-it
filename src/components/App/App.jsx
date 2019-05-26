@@ -5,9 +5,9 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
-
 import store from 'store';
 import { Home } from 'components/Home';
+import { Details } from 'components/Details/Details';
 
 const NoMatch = () => (
   <div>
@@ -20,6 +20,7 @@ const App = () => (
     <Provider store={store}>
       <Switch>
         <Route path="/" exact component={Home} />
+        <Route path="/:id" exact component={Details} />
         <Route component={NoMatch} />
       </Switch>
     </Provider>
