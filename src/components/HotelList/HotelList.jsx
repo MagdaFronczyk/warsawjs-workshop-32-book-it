@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Location } from '../Location/Location';
+import { Hotel } from '../Hotel/Hotel';
 import { connect } from 'react-redux';
 import { getData } from 'store/actions';
 import { SearchBar } from '../SearchBar/SearchBar';
 import { Details } from '../Details/Details';
 import { Link } from "react-router-dom";
 
-class Home extends Component {
+class HotelList extends Component {
 
   componentDidMount() {
     this.props.getData();
@@ -19,9 +19,12 @@ class Home extends Component {
       <div>
         <SearchBar />
         <div>{hotelsList.map((el) => (
-          <Link to={`/${el.id}`} component={Details}>
-            <Location key={el.id} {...el} />
-          </Link>
+          <div>
+            <Hotel key={el.id} {...el} />
+            <Link to={`/${el.id}`} component={Details}>
+              Details
+         </Link>
+          </div>
         ))}</div>
       </div>
     )
@@ -37,6 +40,6 @@ const mapDispatchToProps = dispatch => ({
 })
 
 
-const HomeRedux = connect(mapStateToProps, mapDispatchToProps)(Home);
+const HotelListRedux = connect(mapStateToProps, mapDispatchToProps)(HotelList);
 
-export { HomeRedux as Home }
+export { HotelListRedux as HotelList };

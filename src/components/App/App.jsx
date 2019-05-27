@@ -6,7 +6,7 @@ import {
   Route,
 } from 'react-router-dom';
 import store from 'store';
-import { Home } from 'components/Home/Home';
+import { HotelList } from 'components/HotelList/HotelList';
 import { Details } from 'components/Details/Details';
 
 const NoMatch = () => (
@@ -19,7 +19,7 @@ const App = () => (
   <BrowserRouter>
     <Provider store={store}>
       <Switch>
-        <Route path="/" exact component={Home} />
+        <Route path="/" exact component={HotelList} />
         <Route path="/:id" exact component={Details} />
         <Route component={NoMatch} />
       </Switch>
