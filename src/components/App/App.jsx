@@ -6,7 +6,7 @@ import {
   Route,
 } from 'react-router-dom';
 import store from 'store';
-import { Home } from 'components/Home';
+import { Home } from 'components/Home/Home';
 import { Details } from 'components/Details/Details';
 
 const NoMatch = () => (

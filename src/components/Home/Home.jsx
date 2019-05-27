@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { getData } from 'store/actions';
 import { SearchBar } from '../SearchBar/SearchBar';
 import { Details } from '../Details/Details';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Home extends Component {
 
@@ -35,6 +35,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   getData: () => dispatch(getData())
 })
+
 
 const HomeRedux = connect(mapStateToProps, mapDispatchToProps)(Home);
 

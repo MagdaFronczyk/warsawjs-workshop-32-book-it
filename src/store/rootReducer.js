@@ -4,9 +4,6 @@ import {
 import {
     hotels
 } from './reducers/hotels.reducer';
-import {
-    foundById
-} from './reducers/details.reducer';
 
 import {
     input
@@ -14,8 +11,7 @@ import {
 
 const rootReducer = combineReducers({
     hotels,
-    input,
-    foundById
+    input
 });
 
 export default rootReducer;
