@@ -18,14 +18,11 @@ class HotelList extends Component {
     return (
       <div>
         <SearchBar />
-        <div>{hotelsList.map((el) => (
-          <div>
+        {hotelsList.map((el, index) => (
+          <div key={index}>
             <Hotel key={el.id} {...el} />
-            <Link to={`/${el.id}`} component={Details}>
-              Details
-         </Link>
           </div>
-        ))}</div>
+        ))}
       </div>
     )
   }
