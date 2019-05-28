@@ -9,13 +9,14 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { Details } from '../Details/Details';
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles({
     card: {
-        maxWidth: 600,
+        maxWidth: 400,
     },
     media: {
-        height: 300,
+        height: 200,
     },
 });
 
@@ -52,6 +53,13 @@ const Hotel = (props) => {
             </CardActions>
         </Card>
     )
+}
+
+Hotel.propTypes = {
+    location: PropTypes.object,
+    title: PropTypes.string,
+    cover: PropTypes.object,
+    id: PropTypes.string
 }
 
 export { Hotel };

@@ -3,8 +3,7 @@ import { Hotel } from '../Hotel/Hotel';
 import { connect } from 'react-redux';
 import { getData } from 'store/actions';
 import { SearchBar } from '../SearchBar/SearchBar';
-import { Details } from '../Details/Details';
-import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 class HotelList extends Component {
 
@@ -36,7 +35,11 @@ const mapDispatchToProps = dispatch => ({
   getData: () => dispatch(getData())
 })
 
-
 const HotelListRedux = connect(mapStateToProps, mapDispatchToProps)(HotelList);
+
+HotelList.propTypes = {
+  hotelsList: PropTypes.array,
+  getData: PropTypes.func
+}
 
 export { HotelListRedux as HotelList };

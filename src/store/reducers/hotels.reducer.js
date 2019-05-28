@@ -8,6 +8,8 @@ const initialState = {
     filtered: []
 };
 
+
+
 export const hotels = (state = initialState, action) => {
     switch (action.type) {
         case GET_DATA_SUCCESS:
@@ -15,7 +17,7 @@ export const hotels = (state = initialState, action) => {
                 ...state, data: action.payload, filtered: action.payload
             };
         case GET_INPUT:
-            const filtered = action.payload ? state.data.filter(hotel => hotel.location.address.includes(action.payload)) : state.data;
+            const filtered = action.payload ? state.data.filter(hotel => hotel.location.address.toUpperCase().includes(action.payload.toUpperCase())) : state.data;
             return {
                 ...state, filtered
             };
