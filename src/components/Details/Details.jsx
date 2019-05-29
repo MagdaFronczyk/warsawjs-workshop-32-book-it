@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { getBooked } from 'store/actions';
 
 const Details = (props) => {
 
-    const { data, match } = props;
+    const { data, match, getBooked } = props;
 
     const hotel = data.find(el => el.id === match.params.id);
 
@@ -30,14 +31,19 @@ const Details = (props) => {
                 <h3>Room</h3>
                 <p>Room available: {hotel.room}</p>
             </div>
-        </div>
+            <button onClick={() => getBooked(match.params.id)}>Book</button>
+        </div >
     )
 }
 
 const mapStateToProps = state => ({
-    data: state.hotels.data
+    data: state.hotels.data,
 });
 
-const DetailsRedux = connect(mapStateToProps, null)(Details);
+const mapDispatchToProps = dispatch => ({
+    getBooked: (id) => dispatch(getBooked(id))
+});
+
+const DetailsRedux = connect(mapStateToProps, mapDispatchToProps)(Details);
 
 export { DetailsRedux as Details } 

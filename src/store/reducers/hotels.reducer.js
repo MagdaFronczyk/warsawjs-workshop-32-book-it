@@ -1,11 +1,13 @@
 import {
     GET_DATA_SUCCESS,
-    GET_INPUT
+    GET_INPUT,
+    GET_BOOKED
 } from '../actions/index';
 
 const initialState = {
     data: [],
-    filtered: []
+    filtered: [],
+    booked: []
 };
 
 
@@ -21,7 +23,11 @@ export const hotels = (state = initialState, action) => {
             return {
                 ...state, filtered
             };
-        default:
-            return state;
+        case GET_BOOKED:
+            return {
+                ...state, booked: state.data.filter(hotel => hotel.id === action.payload)
+            }
+            default:
+                return state;
     }
 }
