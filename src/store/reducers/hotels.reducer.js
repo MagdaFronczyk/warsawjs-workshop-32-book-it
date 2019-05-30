@@ -10,8 +10,6 @@ const initialState = {
     booked: []
 };
 
-
-
 export const hotels = (state = initialState, action) => {
     switch (action.type) {
         case GET_DATA_SUCCESS:
@@ -30,4 +28,4 @@ export const hotels = (state = initialState, action) => {
             default:
                 return state;
     }
-}
+};
