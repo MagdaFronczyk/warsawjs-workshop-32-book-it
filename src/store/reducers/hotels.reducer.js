@@ -23,11 +23,7 @@ export const hotels = (state = initialState, action) => {
             };
         case GET_BOOKED:
             return {
-                ...state, booked: [...state.booked, ...state.data.filter((hotel) => hotel.id === action.payload).filter((thing, index, self) =>
-                    index === self.findIndex((t) => (
-                        t.id === thing.id
-                    ))
-                )]
+                ...state, booked: [...state.booked.filter(el => el.id !== action.payload), ...state.data.filter((hotel) => hotel.id === action.payload)]
             }
             default:
                 return state;
