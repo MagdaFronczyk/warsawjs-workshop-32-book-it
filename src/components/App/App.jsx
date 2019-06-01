@@ -8,6 +8,8 @@ import {
 import store from 'store';
 import { HotelList } from 'components/HotelList/HotelList';
 import { Details } from 'components/Details/Details';
+import { Menu } from 'components/Menu/Menu';
+import { Cart } from 'components/Cart/Cart';
 
 const NoMatch = () => (
   <div>
@@ -18,11 +20,15 @@ const NoMatch = () => (
 const App = () => (
   <BrowserRouter>
     <Provider store={store}>
-      <Switch>
-        <Route path="/" exact component={HotelList} />
-        <Route path="/:id" exact component={Details} />
-        <Route component={NoMatch} />
-      </Switch>
+      <div>
+        <Menu />
+        <Switch>
+          <Route path="/" exact component={HotelList} />
+          <Route path="/cart" exact component={Cart} />
+          <Route path="/:id" exact component={Details} />
+          <Route component={NoMatch} />
+        </Switch>
+      </div>
     </Provider>
   </BrowserRouter>
 );

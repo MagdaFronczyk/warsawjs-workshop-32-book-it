@@ -46,7 +46,7 @@ const Hotel = (props) => {
             </CardActionArea>
             <CardActions>
                 <Button size="small" color="primary">
-                    <Link to={`/${id}`} component={Details}>
+                    <Link to={`/${id}`}>
                         Details
                     </Link>
                 </Button>

@@ -3,10 +3,14 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const Menu = () => {
     return (
-        <Router>
-            <div>
-
-            </div>
-        </Router>
+        <nav>
+            <ul>
+                <Link to="/cart">
+                    <li>Cart</li>
+                </Link>
+            </ul>
+        </nav>
     )
 }
+
+export { Menu };
