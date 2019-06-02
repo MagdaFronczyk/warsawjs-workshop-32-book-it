@@ -1,11 +1,23 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const Cart = () => {
+const Cart = (props) => {
+    const { booked } = props;
     return (
         <div>
-            <h1>caaaaaart</h1>
+            <ul>
+                {booked.map(hotel => (
+                    <li key={hotel.id}>{hotel.title}</li>
+                ))}
+            </ul>
         </div>
     )
 }
 
-export { Cart }
+const mapStateToProps = state => ({
+    booked: state.hotels.booked
+});
+
+const CartRedux = connect(mapStateToProps, null)(Cart)
+
+export { CartRedux as Cart }
