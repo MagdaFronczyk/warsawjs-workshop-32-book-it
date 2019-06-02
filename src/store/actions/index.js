@@ -2,10 +2,13 @@ import {
     api
 } from 'services';
 
-export const GET_DATA_SUCCESS = 'GET_DATA_SUCCESS';
-export const GET_DATA_ERROR = 'GET_DATA_ERROR';
-export const GET_INPUT = 'GET_INPUT';
-export const GET_BOOKED = 'GET_BOOKED';
+import {
+    GET_DATA_SUCCESS,
+    GET_DATA_ERROR,
+    GET_INPUT,
+    GET_BOOKED,
+    REMOVE_BOOKED
+} from '../constants/actionTypes';
 
 export const getData = () => {
     return dispatch => api.getData()
@@ -26,5 +29,10 @@ export const getInput = (input) => dispatch => dispatch({
 
 export const getBooked = (id) => dispatch => dispatch({
     type: GET_BOOKED,
+    payload: id
+});
+
+export const removeBooked = (id) => dispatch => dispatch({
+    type: REMOVE_BOOKED,
     payload: id
 });

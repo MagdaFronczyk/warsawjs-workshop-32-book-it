@@ -1,8 +1,9 @@
 import {
     GET_DATA_SUCCESS,
     GET_INPUT,
-    GET_BOOKED
-} from '../actions/index';
+    GET_BOOKED,
+    REMOVE_BOOKED
+} from '../constants/actionTypes';
 
 const initialState = {
     data: [],
@@ -23,9 +24,13 @@ export const hotels = (state = initialState, action) => {
             };
         case GET_BOOKED:
             return {
-                ...state, booked: [...state.booked.filter(el => el.id !== action.payload), ...state.data.filter((hotel) => hotel.id === action.payload)]
-            }
-            default:
-                return state;
+                ...state, booked: [...state.booked.filter(el => el.id !== action.payload), ...state.data.filter(hotel => hotel.id === action.payload)]
+            };
+        case REMOVE_BOOKED:
+            return {
+                ...state, booked: [...state.booked.filter(hotel => hotel.id !== action.payload)]
+            };
+        default:
+            return state;
     }
 };

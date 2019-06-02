@@ -1,6 +1,6 @@
 import {
     GET_INPUT
-} from '../actions/index';
+} from '../constants/actionTypes';
 
 const initialState = {
     value: ""
