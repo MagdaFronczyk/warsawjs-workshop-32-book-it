@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { removeBooked } from '../../store/actions/index';
+import PropTypes from 'prop-types';
 
 const Cart = (props) => {
     const { booked, removeBooked } = props;
@@ -27,5 +28,10 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const CartRedux = connect(mapStateToProps, mapDispatchToProps)(Cart)
+
+Cart.propTypes = {
+    booked: PropTypes.array,
+    removeBooked: PropTypes.func
+}
 
 export { CartRedux as Cart }

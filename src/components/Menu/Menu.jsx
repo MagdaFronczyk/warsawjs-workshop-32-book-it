@@ -1,7 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-const Menu = () => {
+const Menu = (props) => {
+    const { booked } = props;
     return (
         <nav>
             <ul>
@@ -9,11 +12,21 @@ const Menu = () => {
                     <li>Home</li>
                 </Link>
                 <Link to="/cart">
-                    <li>Cart</li>
+                    <li>Cart {booked.length === 0 ? null : `(${booked.length})`}</li>
                 </Link>
             </ul>
         </nav>
     )
 }
 
-export { Menu };
+const mapStateToProps = state => ({
+    booked: state.hotels.booked
+})
+
+const MenuRedux = connect(mapStateToProps, null)(Menu);
+
+Menu.propTypes = {
+    booked: PropTypes.array
+}
+
+export { MenuRedux as Menu };
