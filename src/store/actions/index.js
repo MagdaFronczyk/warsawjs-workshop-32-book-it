@@ -7,7 +7,8 @@ import {
     GET_DATA_ERROR,
     GET_INPUT,
     GET_BOOKED,
-    REMOVE_BOOKED
+    REMOVE_BOOKED,
+    ADD_COMMENT
 } from '../constants/actionTypes';
 
 export const getData = () => {
@@ -35,4 +36,9 @@ export const getBooked = (id) => dispatch => dispatch({
 export const removeBooked = (id) => dispatch => dispatch({
     type: REMOVE_BOOKED,
     payload: id
+});
+
+export const addComment = (comment) => dispatch => dispatch({
+    type: ADD_COMMENT,
+    payload: comment
 });

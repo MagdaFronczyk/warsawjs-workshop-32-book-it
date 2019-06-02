@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { getBooked } from 'store/actions';
+import { getBooked, addComment } from 'store/actions';
 
 const Details = (props) => {
 
-    const { data, match, getBooked } = props;
-
+    const { data, match, comments, getBooked, addComment } = props;
+    const [comment, setComment] = useState("");
     const hotel = data.find(el => el.id === match.params.id);
 
     return (
@@ -32,16 +32,28 @@ const Details = (props) => {
                 <p>Room available: {hotel.room}</p>
             </div>
             <button onClick={() => getBooked(match.params.id)}>Book</button>
+            <div>
+                <p>Add a comment</p>
+                <textarea value={comment} onChange={() => setComment(event.target.value)} cols="30" rows="10"></textarea>
+                <button onClick={() => addComment(comment)}>Add</button>
+                <ul>
+                    {comments.map((comment, index) => (
+                        <li key={index}>{comment}</li>
+                    ))}
+                </ul>
+            </div>
         </div >
     )
 }
 
 const mapStateToProps = state => ({
     data: state.hotels.data,
+    comments: state.comments.list
 });
 
 const mapDispatchToProps = dispatch => ({
-    getBooked: (id) => dispatch(getBooked(id))
+    getBooked: (id) => dispatch(getBooked(id)),
+    addComment: (comment) => dispatch(addComment(comment))
 });
 
 const DetailsRedux = connect(mapStateToProps, mapDispatchToProps)(Details);

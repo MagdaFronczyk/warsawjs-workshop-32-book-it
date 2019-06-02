@@ -9,9 +9,14 @@ import {
     input
 } from './reducers/searchTerm.reducer';
 
+import {
+    comments
+} from './reducers/comments.reducer'
+
 const rootReducer = combineReducers({
     hotels,
-    input
+    input,
+    comments
 });
 
 export default rootReducer;
