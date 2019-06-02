@@ -33,9 +33,9 @@ const Details = (props) => {
             </div>
             <button onClick={() => getBooked(match.params.id)}>Book</button>
             <div>
-                <p>Add a comment</p>
+                <h3>Add a comment</h3>
                 <textarea value={comment} onChange={() => setComment(event.target.value)} cols="30" rows="10"></textarea>
-                <button onClick={() => addComment(comment)}>Add</button>
+                <button onClick={() => { addComment(comment); setComment('') }}>Add</button>
                 <ul>
                     {comments.map((comment, index) => (
                         <li key={index}>{comment}</li>
