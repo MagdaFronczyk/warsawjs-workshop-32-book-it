@@ -19,9 +19,8 @@ const useStyles = makeStyles({
     },
 });
 
-const Hotel = (props) => {
+const Hotel = ({ location, title, cover, id }) => {
     const classes = useStyles();
-    const { location, title, cover, id } = props;
 
     return (
         <Card className={classes.card}>

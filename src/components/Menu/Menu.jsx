@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-const Menu = (props) => {
-    const { booked } = props;
+const Menu = ({ booked }) => {
     return (
         <nav>
             <ul>

@@ -8,7 +8,8 @@ import {
     GET_INPUT,
     GET_BOOKED,
     REMOVE_BOOKED,
-    ADD_COMMENT
+    ADD_COMMENT,
+    REMOVE_COMMENT
 } from '../constants/actionTypes';
 
 export const getData = () => {
@@ -41,4 +42,9 @@ export const removeBooked = (id) => dispatch => dispatch({
 export const addComment = (comment) => dispatch => dispatch({
     type: ADD_COMMENT,
     payload: comment
+});
+
+export const removeComment = (id) => dispatch => dispatch({
+    type: REMOVE_COMMENT,
+    payload: id
 });

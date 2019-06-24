@@ -3,8 +3,7 @@ import { getInput } from '../../store/actions/index';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-const SearchBar = (props) => {
-    const { value, onGetInput } = props;
+const SearchBar = ({ value, onGetInput }) => {
     const [searchString, setSearchString] = useState("");
 
     useEffect(() => {

@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import { getBooked } from 'store/actions';
 import { CommentForm } from '../CommentForm/CommentForm';
 
-const Details = (props) => {
-    const { data, match, getBooked } = props;
+const Details = ({ data, match, getBooked }) => {
     const hotel = data.find(el => el.id === match.params.id);
 
     return (

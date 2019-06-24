@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { addComment } from 'store/actions';
+import { addComment, removeComment } from 'store/actions';
 
-const CommentForm = (props) => {
+const CommentForm = ({ comments, addComment, removeComment }) => {
     const [comment, setComment] = useState("");
-    const { comments, addComment } = props;
 
     return (
         <div>
@@ -13,7 +12,10 @@ const CommentForm = (props) => {
             <button onClick={() => { addComment(comment); setComment('') }}>Add</button>
             <ul>
                 {comments.map((comment, index) => (
-                    <li key={index}>{comment}</li>
+                    <li key={index}>
+                        <p>{comment}</p>
+                        <button onClick={() => removeComment(index)}>X</button>
+                    </li>
                 ))}
             </ul>
         </div>
@@ -25,7 +27,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    addComment: (comment) => dispatch(addComment(comment))
+    addComment: (comment) => dispatch(addComment(comment)),
+    removeComment: (index) => dispatch(removeComment(index))
 });
 
 const CommentRedux = connect(mapStateToProps, mapDispatchToProps)(CommentForm);

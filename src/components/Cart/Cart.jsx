@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import { removeBooked } from '../../store/actions/index';
 import PropTypes from 'prop-types';
 
-const Cart = (props) => {
-    const { booked, removeBooked } = props;
+const Cart = ({ booked, removeBooked }) => {
     return (
         <div>
             <ul>
